@@ -1,0 +1,21 @@
+{
+  "name": "venzee-templates",
+  "version": "0.0.1",
+  "description": "Wraps aws-sdk module to abstract away some of the underlying complexities",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -R spec --require spec/.config/bootstrap.js --recursive spec/test",
+    "test": "npm run coverage",
+    "tdd": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -R spec --watch --require spec/.config/bootstrap.js --recursive spec/test"
+  },
+  "author": "Venzee, Inc.",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.75.0"
+  },
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.4.2"
+  }
+}
