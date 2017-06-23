@@ -49,25 +49,36 @@ describe( 'The monkeyPatch function', ()=>{
 
   it( 'should throw if the key is not a string', ()=>{
 
-    expect( monkeyPatch.bind( {}, 0, ()=>null ) )
-      .to.throw;
+    expect( monkeyPatch.bind( null, {}, 0, ()=>null ) )
+      .to.throw();
 
   } );
 
   it( 'should trow if the object doesn\'t contain a member with the key provided', ()=>{
 
-    expect( monkeyPatch.bind( {}, 'key', ()=>null ) )
-      .to.throw;
+    expect( monkeyPatch.bind( null, {}, 'key', ()=>null ) )
+      .to.throw();
 
   } );
+  
+  it( 'should throw if the patch is not a function', ()=>{
+    
+    const funcKey
+      = 'funcKey';
+
+    expect( monkeyPatch.bind( null, { funcKey }, funcKey, 0 ) )
+      .to.throw();
+  
+  } );
+
 
   it( 'should throw if the object\'s property is of a different type then the patch', ()=>{
     
     const funcKey
       = 'funcKey';
 
-    expect( monkeyPatch.bind( { funcKey }, funcKey, ()=>null ) )
-      .to.throw;
+    expect( monkeyPatch.bind( null, { funcKey }, funcKey, ()=>null ) )
+      .to.throw();
   
   } );
 
