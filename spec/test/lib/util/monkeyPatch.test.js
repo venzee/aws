@@ -6,41 +6,41 @@ describe( 'The monkeyPatch function', ()=>{
 
   it( 'should monkey patch an object with a function at the key provided', ()=>{
 
-    const funcKey
-      = 'foo';
+    const key
+      = 'key';
 
-    function expected(){}
+    function patch(){}
 
     const obj
-      = { [ funcKey ]: ()=>null };
+      = { [ key ]: ()=>null };
 
-    monkeyPatch( obj, funcKey, expected );
+    monkeyPatch( obj, { key, patch } );
 
     const actual
-      = obj[ funcKey ];
+      = obj[ key ];
 
     expect( actual )
-      .to.be.equal( expected );
+      .to.be.equal( patch );
     
   } );
 
   it( 'should provide a method to restore the original method', ()=>{
 
-    const funcKey
-      = 'foo';
+    const key
+      = 'key';
 
     function expected(){}
 
     const obj
-      = { [ funcKey ]: expected };
+      = { [ key ]: expected };
 
     const restore
-      = monkeyPatch( obj, funcKey, ()=>null );
+      = monkeyPatch( obj, { key, patch: ()=>null } );
     
     restore();
 
     const actual
-      = obj[ funcKey ];
+      = obj[ key ];
 
     expect( actual )
       .to.be.equal( expected );
@@ -49,24 +49,24 @@ describe( 'The monkeyPatch function', ()=>{
 
   it( 'should throw if the key is not a string', ()=>{
 
-    expect( monkeyPatch.bind( null, {}, 0, ()=>null ) )
+    expect( monkeyPatch.bind( null, {}, { key: 0, patch: ()=>null } ) )
       .to.throw();
 
   } );
 
   it( 'should trow if the object doesn\'t contain a member with the key provided', ()=>{
 
-    expect( monkeyPatch.bind( null, {}, 'key', ()=>null ) )
+    expect( monkeyPatch.bind( null, {}, { key: 'key', patch: ()=>null } ) )
       .to.throw();
 
   } );
   
   it( 'should throw if the patch is not a function', ()=>{
     
-    const funcKey
-      = 'funcKey';
+    const key
+      = 'key';
 
-    expect( monkeyPatch.bind( null, { funcKey }, funcKey, 0 ) )
+    expect( monkeyPatch.bind( null, { key }, { key, patch: 0 } ) )
       .to.throw();
   
   } );
@@ -74,10 +74,10 @@ describe( 'The monkeyPatch function', ()=>{
 
   it( 'should throw if the object\'s property is of a different type then the patch', ()=>{
     
-    const funcKey
-      = 'funcKey';
+    const key
+      = 'key';
 
-    expect( monkeyPatch.bind( null, { funcKey }, funcKey, ()=>null ) )
+    expect( monkeyPatch.bind( null, { key }, { key, patch: ()=>null } ) )
       .to.throw();
   
   } );
