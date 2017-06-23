@@ -1,4 +1,4 @@
-/* jshint expr: false  */
+/* jshint expr:true  */
 
 describe( 'The tryRequire function', ()=>{
 
