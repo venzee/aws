@@ -6,7 +6,8 @@
     "./spec/.config/bootstrap.js"
   ],
   "exclude": [
-    "./spec"
+    "lib/util/env.js",
+    "spec"
   ],
   "reporter":[
     "text",
