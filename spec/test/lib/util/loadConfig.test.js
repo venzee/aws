@@ -5,7 +5,10 @@ describe( 'The loadConfig function', ()=>{
 
   const mockFs
     = require( 'mock-fs' );
-    
+
+  const { CONFIG_FILE_NAME }
+    = require.main.require( 'lib/constants/keys' ).FILES;
+
   afterEach( ()=>mockFs.restore() );
 
   it( 'should load the config file, if it is present', ()=>{
@@ -14,7 +17,7 @@ describe( 'The loadConfig function', ()=>{
       = { EMULATE_SWF: true };
 
     const mockFsConfig
-      = { [ loadConfig.CONFIG_FILE_NAME ]: JSON.stringify( expected ) };
+      = { [ CONFIG_FILE_NAME ]: JSON.stringify( expected ) };
 
     mockFs( mockFsConfig );
 
@@ -33,7 +36,7 @@ describe( 'The loadConfig function', ()=>{
   it( 'should error out, if the config file has an error', ()=>{
     
     const mockFsConfig
-      = { [ loadConfig.CONFIG_FILE_NAME ]: '{ not: "JSON" }' };
+      = { [ CONFIG_FILE_NAME ]: '{ not: "JSON" }' };
 
     mockFs( mockFsConfig );
 
