@@ -1,5 +1,5 @@
 {
-  "name": "venzee-aws",
+  "name": "@venzee/aws",
   "version": "0.0.1",
   "description": "Wraps aws-sdk module to abstract away some of the underlying complexities",
   "main": "index.js",
