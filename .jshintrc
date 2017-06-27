@@ -1,7 +1,8 @@
 {
-  "node":      true,
-  "quotmark":  "single",
+  "eqnull":    true,
   "esversion": 6,
   "laxbreak":  true,
+  "node":      true,
+  "quotmark":  "single",
   "unused":    true
 }
