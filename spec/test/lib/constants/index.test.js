@@ -14,7 +14,7 @@ describe( 'The constants module', ()=>{
     = require.main.require( 'lib/constants/keys' ).OPTIONS;
   
   const proxyquire
-    = require( 'proxyquire' );
+    = require( 'proxyquire' ).noCallThru().noPreserveCache();
   
   it( 'should apply config file options', ()=>{
 
