@@ -8,16 +8,24 @@
     "tdd": "nyc mocha --watch --recursive spec/test"
   },
   "author": "Venzee, Inc.",
+  "contributors": [
+    {
+      "name": "Markus Westerholz",
+      "email": "mwesterholz@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/venzee/aws.git"
+  },
   "license": "MIT",
   "dependencies": {
     "@venzee/mock-swf": "git://github.com/venzee/mock-swf.git",
     "async": "^2.5.0",
-    "async-load-module": "^1.0.0",
     "aws-sdk": "^2.77.0",
     "deep-freeze": "0.0.1",
     "fs-extra": "^3.0.1",
-    "lodash": "^4.17.4",
-    "object-streaming-tools": "^1.1.0"
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "chai": "^4.0.2",
