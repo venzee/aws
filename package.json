@@ -20,7 +20,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@venzee/mock-swf": "git://github.com/venzee/mock-swf.git",
     "async": "^2.5.0",
     "aws-sdk": "^2.77.0",
     "deep-freeze": "0.0.1",

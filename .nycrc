@@ -12,7 +12,8 @@
   ],
   "exclude": [
     "lib/util/env.js",
-    "spec"
+    "spec",
+    "**/constants/*"
   ],
   "reporter":[
     "text",
